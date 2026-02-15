@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pushpalal Memorial Secondary School</title>
+    <link href="{{url_for('static',filename='output.css')}}" rel="stylesheet" />
+  </head>
+  <body
+    class="bg-white/80 relative min-h-screen h-screen bg-[url('/static/Assets/background-image.png')] bg-cover bg-fixed bg-center"
+  >
+    <!-- HEADER -->
+
+    <div class="top-bar flex justify-center gap-10">
+      <span class="phone-number flex gap-1.5 text-md"
+        ><svg
+          class="size-6"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="size-5"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
+        01-4811002</span
+      >
+      <span>✉️ plmss2057@gmail.com</span>
+    </div>
+    <!-- Header -->
+    <header class="mx-10 bg-white/80 items-center p-4 rounded-xl">
+      <div class="header-content flex">
+        <div class="logo w-1/15 mb-3">
+          <img
+            src="{{url_for('static', filename='../static/Assets/fevicon.png')}}"
+            alt="School Logo"
+          />
+        </div>
+        <span class="school-title w-full block text-center font-bold text-3xl"
+          >Pushpalal Memorial Secondary School</span
+        >
+      </div>
+      <nav class="text-2xl"></nav>
+    </header>
+    <ul
+      class="nav-list bg-white/80/50 mx-10 rounded-xl -mt-9 flex justify-center gap-15 sticky top-0"
+    >
+      <li class="">
+        <a href="{{url_for('index')}}" class="active flex"
+          ><svg
+            class="mt-1 size-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="size-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          Home</a
+        >
+      </li>
+      <li>
+        <a href="{{url_for('admission')}}" class="flex"
+          ><svg
+            class="mt-1 size-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="size-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.664 1.319a.75.75 0 0 1 .672 0 41.059 41.059 0 0 1 8.198 5.424.75.75 0 0 1-.254 1.285 31.372 31.372 0 0 0-7.86 3.83.75.75 0 0 1-.84 0 31.508 31.508 0 0 0-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 0 1 3.305-2.033.75.75 0 0 0-.714-1.319 37 37 0 0 0-3.446 2.12A2.216 2.216 0 0 0 6 9.393v.38a31.293 31.293 0 0 0-4.28-1.746.75.75 0 0 1-.254-1.285 41.059 41.059 0 0 1 8.198-5.424ZM6 11.459a29.848 29.848 0 0 0-2.455-1.158 41.029 41.029 0 0 0-.39 3.114.75.75 0 0 0 .419.74c.528.256 1.046.53 1.554.82-.21.324-.455.63-.739.914a.75.75 0 1 0 1.06 1.06c.37-.369.69-.77.96-1.193a26.61 26.61 0 0 1 3.095 2.348.75.75 0 0 0 .992 0 26.547 26.547 0 0 1 5.93-3.95.75.75 0 0 0 .42-.739 41.053 41.053 0 0 0-.39-3.114 29.925 29.925 0 0 0-5.199 2.801 2.25 2.25 0 0 1-2.514 0c-.41-.275-.826-.541-1.25-.797a6.985 6.985 0 0 1-1.084 3.45 26.503 26.503 0 0 0-1.281-.78A5.487 5.487 0 0 0 6 12v-.54Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Admission</a
+        >
+      </li>
+      <li>
+        <a href="{{url_for('gallary')}}" class="flex"
+          ><svg
+            class="mt-1 size-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="size-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm1.5 5.81v3.69c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-2.69l-2.22-2.219a.75.75 0 0 0-1.06 0l-1.91 1.909.47.47a.75.75 0 1 1-1.06 1.06L6.53 8.091a.75.75 0 0 0-1.06 0l-2.97 2.97ZM12 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Gallery</a
+        >
+      </li>
+      <li>
+        <a href="{{url_for('newsLetter')}}" class="flex"
+          ><svg
+            class="mt-1 size-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="size-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v11.75A2.75 2.75 0 0 0 16.75 18h-12A2.75 2.75 0 0 1 2 15.25V3.5Zm3.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5ZM5 5.75A.75.75 0 0 1 5.75 5h4.5a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 8.25v-2.5Z"
+              clip-rule="evenodd"
+            />
+            <path
+              d="M16.5 6.5h-1v8.75a1.25 1.25 0 1 0 2.5 0V8a1.5 1.5 0 0 0-1.5-1.5Z"
+            />
+          </svg>
+          News & Letter</a
+        >
+      </li>
+      <li>
+        <a href="{{url_for('notice')}}" class="flex"
+          ><svg
+            class="mt-1 size-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="size-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Notice</a
+        >
+      </li>
+    </ul>
+
+    <!-- Notices Grid -->
+    <section class="mx-10 my-10 rounded-xl bg-white/80 p-6">
+      <h1 class="text-center text-3xl mb-6">Notices</h1>
+
+      <p class="text-center text-sm text-gray-600 mb-4">
+        Latest School Notices
+      </p>
+
+      <div
+        class="notices-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+      >
+        {%- set notices = [ {'title':'Admission Open for
+        2026','text':'Applications are open for Grades 1–10. Submit completed
+        forms at the school office by March 15, 2026.','time':'2026-03-15 09:00
+        AM'}, {'title':'Annual Exam Schedule Released','text':'Final exam dates
+        for all classes have been published. Check class noticeboards for
+        subject-wise timings.','time':'2026-02-20 08:30 AM'},
+        {'title':'Parent–Teacher Meeting','text':'PTM for Grades 6–10 will be
+        held on Feb 25. Parents are requested to meet class teachers between
+        9am–12pm.','time':'2026-02-25 09:00 AM'}, {'title':'School Closed for
+        Holi','text':'The school will remain closed on March 24 on account of
+        Holi. Regular classes resume March 25.','time':'2026-03-24 00:00 AM'},
+        {'title':'Sports Day Announcement','text':'Inter-house Sports Day is
+        scheduled for April 10. Students must wear house t-shirts and arrive by
+        7:30am.','time':'2026-04-10 07:30 AM'}, {'title':'Merit Scholarship
+        Applications','text':'Scholarship forms for meritorious students are
+        available from the office. Deadline: April 5.','time':'2026-04-05 04:00
+        PM'}, {'title':'Fee Payment Reminder','text':'Please clear outstanding
+        tuition fees by March 1 to avoid late penalties. Contact accounts for
+        queries.','time':'2026-03-01 10:00 AM'}, {'title':'Library Inventory
+        Update','text':'Library will be closed for inventory on February 28.
+        Return borrowed books by Feb 26.','time':'2026-02-28 09:00 AM'},
+        {'title':'Bus Route Change','text':'Route 3 timing adjusted; pickup at
+        Main Gate now at 7:05am. Parents please note the
+        change.','time':'2026-02-18 07:05 AM'}, {'title':'Free Medical Checkup
+        Camp','text':'A health camp for students will be held on March 5.
+        Consent forms must be submitted by March 1.','time':'2026-03-05 09:00
+        AM'}, {'title':'Term Results Publication','text':'Term I results for
+        Grades 8–10 will be published online on March 12 after
+        5pm.','time':'2026-03-12 05:00 PM'}, {'title':'Safety Drill
+        Scheduled','text':'A fire and safety drill will take place on Feb 22.
+        Students should follow teacher instructions calmly.','time':'2026-02-22
+        11:00 AM'}, {'title':'Uniform Distribution Day','text':'New uniform
+        samples will be available for fitting on March 2 in the school
+        hall.','time':'2026-03-02 10:00 AM'}, {'title':'Science Fair
+        Submissions','text':'Project entries for the science fair close on March
+        20. Submit abstracts to the science department.','time':'2026-03-20
+        02:00 PM'}, {'title':'Cultural Program Invite','text':'Join us for the
+        cultural evening on March 28 showcasing student performances and
+        awards.','time':'2026-03-28 06:00 PM'}, {'title':'Staff Meeting
+        Notice','text':'All teaching staff to attend a meeting on Feb 19 at 3pm
+        in the staffroom.','time':'2026-02-19 03:00 PM'}, {'title':'Annual
+        Report Release','text':'The school annual report will be available from
+        March 30 at the administration office.','time':'2026-03-30 09:00 AM'},
+        {'title':'PTA Executive Meeting','text':'PTA executive members meeting
+        on Feb 26 to discuss fundraising initiatives.','time':'2026-02-26 05:00
+        PM'}, {'title':'School Photo Day','text':'Class and individual
+        photographs scheduled for April 2. Students should be in full
+        uniform.','time':'2026-04-02 08:00 AM'}, {'title':'Teacher
+        Workshop','text':'A workshop on modern teaching methods for staff on
+        March 8. External resource person attending.','time':'2026-03-08 09:30
+        AM'}, {'title':'Orientation for New Parents','text':'Orientation
+        programme for parents of new students on April 1 in the auditorium at
+        10am.','time':'2026-04-01 10:00 AM'}, {'title':'Extra Classes
+        Notice','text':'Revision classes for Grade 10 start from March 16 after
+        school hours. Attendance is mandatory.','time':'2026-03-16 02:30 PM'},
+        {'title':'Laboratory Maintenance','text':'Chemistry lab will be closed
+        on Feb 27 for equipment maintenance; practicals will be
+        rescheduled.','time':'2026-02-27 09:00 AM'}, {'title':'Lost &
+        Found','text':'A set of stationery and a water bottle found near Gate B.
+        Claim from the office with ID.','time':'2026-02-15 02:00 PM'},
+        {'title':'Community Clean-up Drive','text':'Students and parents invited
+        for neighborhood clean-up on March 14. Please register at
+        reception.','time':'2026-03-14 08:00 AM'}, {'title':'Sports Coaching
+        Camp','text':'After-school coaching camp for football and basketball
+        starts March 10. Limited seats available.','time':'2026-03-10 04:00
+        PM'}, {'title':'Parent Seminar: Digital Safety','text':'A seminar on
+        online safety for parents on March 18. Experts will give tips for safe
+        internet use.','time':'2026-03-18 05:30 PM'}, {'title':'Winter Break
+        Reminder','text':'Winter vacation schedule will be shared soon; plan
+        academic submissions accordingly.','time':'2026-12-01 09:00 AM'},
+        {'title':'Shortlisted Candidates','text':'List of shortlisted candidates
+        for the scholarship interview is posted on the
+        noticeboard.','time':'2026-03-06 11:00 AM'}, {'title':'Power
+        Maintenance','text':'Electricity maintenance on Feb 21 from 1pm-3pm.
+        Labs and computers may be unavailable during this
+        time.','time':'2026-02-21 01:00 PM'} ] -%} {%- for notice in notices %}
+        <article
+          class="notice-box bg-white/80 border border-gray-100 rounded-lg p-4 shadow-sm flex flex-col justify-between"
+        >
+          <div>
+            <h3 class="font-semibold text-base">{{ notice.title }}</h3>
+            <p class="text-sm text-gray-600 mt-2">{{ notice.text }}</p>
+          </div>
+          <div class="mt-3 text-right">
+            <time class="text-xs text-gray-500">{{ notice.time }}</time>
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+    </section>
+  </body>
+</html>
