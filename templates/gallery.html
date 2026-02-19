@@ -144,110 +144,229 @@
       </li>
     </ul>
 
-    <!-- Cards Component -->
-    <div class="cards">
-      <style>
-        .team-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 2rem;
-          padding: 2rem;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
+    <!-- Gallery Component -->
+    <section class="mx-10 my-10 rounded-xl bg-white/80 p-8">
+      <h1 class="text-center text-3xl mb-6">Gallery</h1>
 
-        .team-card {
-          background: #ffffff;
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-          transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-          border: 1px solid #f0f0f0;
-          text-align: center;
-        }
+      <div class="flex gap-6 mb-6">
+        <button
+          id="btn-images"
+          class="px-4 py-2 rounded-lg bg-blue-600 text-white"
+        >
+          Image Gallery
+        </button>
+        <button
+          id="btn-videos"
+          class="px-4 py-2 rounded-lg bg-white border border-gray-200"
+        >
+          Video Gallery
+        </button>
+      </div>
 
-        .team-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-        }
+      <!-- Image gallery grid -->
+      <div
+        id="image-gallery"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
+        {% for i in range(1, 131) %}
+        <div class="rounded-lg overflow-hidden bg-white shadow-sm">
+          <button class="w-full focus:outline-none" data-index="{{ i-1 }}">
+            <img
+              src="{{ url_for('static', filename='Assets/img' ~ i ~ '.jpg') }}"
+              alt="Gallery image {{ i }}"
+              class="w-full h-48 object-cover hover:scale-105 transition-transform duration-200"
+              loading="lazy"
+            />
+          </button>
+        </div>
+        {% endfor %}
+      </div>
 
-        .image-container {
-          width: 100%;
-          height: 300px;
-          overflow: hidden;
-          background-color: #f8f9fa;
-        }
-
-        .team-card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover; /* Keeps images from stretching */
-          filter: grayscale(
-            20%
-          ); /* Optional: adds a uniform professional tone */
-          transition: filter 0.3s ease;
-        }
-
-        .team-card:hover img {
-          filter: grayscale(0%);
-        }
-
-        .info {
-          padding: 1.5rem;
-        }
-
-        .name {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #1a1a1a;
-          margin-bottom: 0.25rem;
-        }
-
-        .role {
-          font-size: 0.9rem;
-          color: #6366f1; /* Brand color */
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          margin-bottom: 1rem;
-        }
-
-        .social-links {
-          display: flex;
-          justify-content: center;
-          gap: 15px;
-          border-top: 1px solid #eee;
-          padding-top: 1rem;
-        }
-
-        .social-links a {
-          color: #999;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-
-        .social-links a:hover {
-          color: #1a1a1a;
-        }
-      </style>
-
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="image-container">
-            <img src="https://via.placeholder.com/400x500" alt="Team Member" />
-          </div>
-          <div class="info">
-            <div class="name">Sarah Jenkins</div>
-            <div class="role">Chief Operations Officer</div>
-            <div class="social-links">
-              <a href="#">LinkedIn</a>
-              <a href="#">Twitter</a>
-            </div>
-          </div>
+      <!-- Video gallery (hidden by default) -->
+      <div id="video-gallery" class="hidden">
+        <div
+          class="bg-white p-6 rounded-lg shadow-sm text-center text-gray-600"
+        >
+          <p class="mb-4">No videos available yet.</p>
         </div>
       </div>
-    </div>
+
+      <div
+        id="lightbox"
+        class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4"
+      >
+        <div class="relative max-w-5xl w-full">
+          <button
+            id="lightbox-close"
+            class="absolute right-2 top-2 bg-white/90 rounded-full p-2 shadow-md"
+          >
+            ✕
+          </button>
+          <button
+            id="lightbox-prev"
+            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md"
+          >
+            ◀
+          </button>
+          <button
+            id="lightbox-next"
+            class="absolute right-12 top-1/2 -translate-y-1/2 bg-white/90 rounded-full p-2 shadow-md"
+          >
+            ▶
+          </button>
+          <img
+            id="lightbox-img"
+            src=""
+            alt=""
+            class="w-full h-auto rounded-lg mx-auto"
+          />
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const btnImages = document.getElementById("btn-images");
+          const btnVideos = document.getElementById("btn-videos");
+          const imageGallery = document.getElementById("image-gallery");
+          const videoGallery = document.getElementById("video-gallery");
+
+          btnImages.addEventListener("click", () => {
+            imageGallery.classList.remove("hidden");
+            videoGallery.classList.add("hidden");
+            btnImages.classList.add("bg-blue-600", "text-white");
+            btnImages.classList.remove("bg-white", "border");
+            btnVideos.classList.remove("bg-blue-600", "text-white");
+            btnVideos.classList.add("bg-white", "border");
+          });
+
+          btnVideos.addEventListener("click", () => {
+            imageGallery.classList.add("hidden");
+            videoGallery.classList.remove("hidden");
+            btnVideos.classList.add("bg-blue-600", "text-white");
+            btnVideos.classList.remove("bg-white", "border");
+            btnImages.classList.remove("bg-blue-600", "text-white");
+            btnImages.classList.add("bg-white", "border");
+          });
+
+          // Lightbox logic
+          const lightbox = document.getElementById("lightbox");
+          const lightboxImg = document.getElementById("lightbox-img");
+          const closeBtn = document.getElementById("lightbox-close");
+          const prevBtn = document.getElementById("lightbox-prev");
+          const nextBtn = document.getElementById("lightbox-next");
+
+          const images = Array.from(
+            document.querySelectorAll("#image-gallery img"),
+          );
+          let current = 0;
+
+          function openAt(index) {
+            const img = images[index];
+            if (!img) return;
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || "";
+            lightbox.classList.remove("hidden");
+            current = index;
+          }
+
+          images.forEach((imgEl, idx) => {
+            const btn = imgEl.closest("button");
+            if (btn) {
+              btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openAt(idx);
+              });
+            }
+          });
+
+          closeBtn.addEventListener("click", () =>
+            lightbox.classList.add("hidden"),
+          );
+          lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) lightbox.classList.add("hidden");
+          });
+
+          prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (current > 0) {
+              current--;
+              openAt(current);
+            }
+          });
+          nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (current < images.length - 1) {
+              current++;
+              openAt(current);
+            }
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (lightbox.classList.contains("hidden")) return;
+            if (e.key === "Escape") lightbox.classList.add("hidden");
+            if (e.key === "ArrowLeft") prevBtn.click();
+            if (e.key === "ArrowRight") nextBtn.click();
+          });
+        })();
+      </script>
+    </section>
+
+    <footer class="mx-10 rounded-xl bg-white/80 p-6 mt-10">
+      <div
+        class="footer-content flex flex-col md:flex-row justify-between items-start gap-6"
+      >
+        <div class="contact w-full md:w-1/3">
+          <h3 class="font-bold text-lg mb-2">Contact</h3>
+          <p>Phone: 01-4811002</p>
+          <p>Email: plmss2057@gmail.com</p>
+          <p class="mt-2 text-sm text-gray-600">
+            © 2057 Pushpalal Memorial Secondary School
+          </p>
+        </div>
+        <div class="links w-full md:w-1/3">
+          <h3 class="font-bold text-lg mb-2">Quick Links</h3>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a
+                href="{{url_for('index')}}"
+                class="text-blue-600 hover:underline"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{url_for('admission')}}"
+                class="text-blue-600 hover:underline"
+                >Admission</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{url_for('gallary')}}"
+                class="text-blue-600 hover:underline"
+                >Gallery</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="newsletter w-full md:w-1/3">
+          <h3 class="font-bold text-lg mb-2">Contact Us</h3>
+          <form class="flex gap-2" action="#" method="post">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              class="border rounded p-2 flex-1"
+            />
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-4 py-2 rounded"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -143,5 +143,160 @@
         >
       </li>
     </ul>
+
+    <main>
+      <section class="mx-10 my-10 rounded-xl bg-white/80 p-10">
+        <h1 class="text-center text-3xl mb-6">News & Letter</h1>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+          <!-- Main list -->
+          <div class="w-full lg:w-2/3 space-y-4">
+            {% set letters = [ {'title':'Annual Day Newsletter
+            2079','date':'2079-09-10','summary':'Coverage of the school annual
+            day, awards and performances.','file':'news1.pdf'},
+            {'title':'Midterm Results
+            Update','date':'2079-05-22','summary':'Summary of midterm
+            examinations and top performers.','file':'news2.pdf'},
+            {'title':'Sports Meet
+            Highlights','date':'2079-03-18','summary':'Photos and results from
+            the inter-house sports meet.','file':'news3.pdf'}, {'title':'Science
+            Exhibition Bulletin','date':'2079-02-10','summary':'Projects,
+            winners and future science club plans.','file':'news4.pdf'},
+            {'title':'Admission Notice
+            2079','date':'2079-01-05','summary':'Important dates and
+            requirements for new admissions.','file':'news5.pdf'},
+            {'title':'Cultural Program
+            Summary','date':'2078-11-30','summary':'Celebrating festivals and
+            student cultural groups.','file':'news6.pdf'},
+            {'title':'Parent-Teacher Meeting
+            Recap','date':'2078-10-12','summary':'Key takeaways and next steps
+            from recent PTM.','file':'news7.pdf'}, {'title':'Monthly Newsletter
+            — Falgun','date':'2078-12-01','summary':'Updates from classrooms and
+            creative student work.','file':'news8.pdf'} ] %} {% for n in letters
+            %}
+            <article class="bg-white p-6 rounded-lg shadow-sm border">
+              <h2 class="text-xl font-semibold">{{ n.title }}</h2>
+              <p class="text-sm text-gray-600 mt-1">{{ n.date }}</p>
+              <p class="mt-3 text-gray-700">{{ n.summary }}</p>
+              <div class="mt-4">
+                <a
+                  href="{{ url_for('static', filename='Assets/' ~ n.file) }}"
+                  class="text-blue-600 hover:underline"
+                  >Download</a
+                >
+              </div>
+            </article>
+            {% endfor %}
+
+            <nav class="flex justify-between items-center mt-4">
+              <button class="px-4 py-2 rounded bg-white border">← Older</button>
+              <button class="px-4 py-2 rounded bg-blue-600 text-white">
+                Newer →
+              </button>
+            </nav>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="w-full lg:w-1/3 space-y-4">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="font-bold text-lg mb-2">Subscribe</h3>
+              <form action="#" method="post" class="flex gap-2">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  class="border rounded p-2 flex-1"
+                />
+                <button
+                  type="submit"
+                  class="bg-blue-600 text-white px-4 py-2 rounded"
+                >
+                  Subscribe
+                </button>
+              </form>
+              <p class="mt-3 text-sm text-gray-500">
+                Get the latest newsletters directly to your inbox.
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="font-bold text-lg mb-2">Archives</h3>
+              <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                <li>2079</li>
+                <li>2078</li>
+                <li>2077</li>
+                <li>Older archives</li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="font-bold text-lg mb-2">Contact</h3>
+              <p class="text-sm">
+                For newsletter submissions or bulk download requests, contact
+                <strong>plmss2057@gmail.com</strong>.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-10 rounded-xl bg-white/80 p-6 mt-10">
+      <div
+        class="footer-content flex flex-col md:flex-row justify-between items-start gap-6"
+      >
+        <div class="contact w-full md:w-1/3">
+          <h3 class="font-bold text-lg mb-2">Contact</h3>
+          <p>Phone: 01-4811002</p>
+          <p>Email: plmss2057@gmail.com</p>
+          <p class="mt-2 text-sm text-gray-600">
+            © 2057 Pushpalal Memorial Secondary School
+          </p>
+        </div>
+        <div class="links w-full md:w-1/3">
+          <h3 class="font-bold text-lg mb-2">Quick Links</h3>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a
+                href="{{url_for('index')}}"
+                class="text-blue-600 hover:underline"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{url_for('admission')}}"
+                class="text-blue-600 hover:underline"
+                >Admission</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{url_for('gallary')}}"
+                class="text-blue-600 hover:underline"
+                >Gallery</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="newsletter w-full md:w-1/3">
+          <h3 class="font-bold text-lg mb-2">Contact Us</h3>
+          <form class="flex gap-2" action="#" method="post">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              class="border rounded p-2 flex-1"
+            />
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-4 py-2 rounded"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
