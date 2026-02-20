@@ -28,6 +28,10 @@ class RegistrationForm(FlaskForm):
     address = TextAreaField("Address", validators=[DataRequired()])
     submit = SubmitField("Submit Application")
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template("dashboard.html")
+
 @app.route('/')
 @app.route('/index')
 def index():
